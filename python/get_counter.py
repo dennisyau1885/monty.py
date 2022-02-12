@@ -69,10 +69,10 @@ def increment_counter(datetime_: str):
 	)
 
 if __name__ == '__main__':
-	if len(sys.argv) != 0:
-		datetime_ = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M")
-	else:
+	if len(sys.argv) == 2:
 		datetime_ = sys.argv[1]
+	else:
+		datetime_ = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M")
 	counter = get_counter(datetime_)
 	if counter == 0:
 		create_counter(datetime_)
