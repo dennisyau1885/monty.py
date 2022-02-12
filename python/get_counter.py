@@ -4,6 +4,7 @@ import boto3
 import datetime
 import decimal  
 import json
+import sys
 import time
 from botocore.exceptions import ClientError
 
@@ -68,7 +69,10 @@ def increment_counter(datetime_: str):
 	)
 
 if __name__ == '__main__':
-	datetime_ = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M")
+	if len(sys.argv) != 0:
+		datetime_ = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M")
+	else:
+		datetime_ = sys.argv[1]
 	counter = get_counter(datetime_)
 	if counter == 0:
 		create_counter(datetime_)
