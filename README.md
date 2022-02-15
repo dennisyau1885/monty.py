@@ -1,5 +1,6 @@
-monty.py
+monty.py![spam-pixel](https://user-images.githubusercontent.com/26765594/153971469-31c2adb2-2f71-4003-997e-728b9b4ecd4c.gif)
 ========
+
 
 A learning journey
 - [X] Write some .py that returns a different line from https://en.wikipedia.org/wiki/Spam_(Monty_Python) each time
