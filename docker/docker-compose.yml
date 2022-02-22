@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ../python
+      dockerfile: ../docker/Dockerfile
+    image: spam-in-a-flask:latest
+    volumes:
+    - $HOME/.aws/credentials:/root/.aws/credentials:ro
+    - $HOME/.aws/config:/root/.aws/config:ro
+    ports:
+    - "5000:5000"
