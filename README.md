@@ -7,6 +7,7 @@ A learning journey
 - [X] Terraform a AWS DynamoDB table, use ttl so old entries get auto deleted
 - [X] Integrate .py with AWS DynamoDB so it remembers what spam line it was on previously
 - [X] Building a spam-in-a-flask app and Dockerfile for local testing
+- [X] Package up .py for AWS Lambda
 - [ ] Ensure unittest.py is happy
-- [ ] Package up .py for AWS Lambda
+- [ ] Manually deploy using ~terraform~ Cloudformation
 - [ ] deploy using github actions
