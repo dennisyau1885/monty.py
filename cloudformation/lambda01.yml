@@ -1,7 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: >
-  This CloudFormation template creates simple Lambda functions,
-  which prints CloudFormation resource Arn from the stack.  
+Description: Monty CF
 
 Resources:
   LambdaFunctionRole:
@@ -49,8 +47,8 @@ Resources:
   HttpApi:
     Type: 'AWS::ApiGatewayV2::Api'
     Properties:
-      Name: HttpGateway
-      Description: An Amazon API Gateway HTTP API and an AWS Lambda function.
+      Name: lambda01
+      Description: Monty Gateway
       ProtocolType: HTTP
       CorsConfiguration:
         AllowOrigins:
