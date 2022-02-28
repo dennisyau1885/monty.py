@@ -2,11 +2,12 @@ YML   = $(wildcard *.yml)
 STACK = $(YML:%.yml=%)
 FILE  = file://$(shell pwd)/$(YML)
 
-all: list endpoints
+all: list endpoints test
 
 list:
 	@aws cloudformation list-stacks \
-	| jq -c '.StackSummaries[:5][] | {N:.StackName,S:.StackStatus,C:.CreationTime}'
+	| jq -c \
+	'.StackSummaries[:1][]|{StackName,StackStatus,CreationTime}'
 
 create:
 	@aws cloudformation create-stack \
@@ -25,7 +26,7 @@ delete:
 
 endpoints:
 	@aws apigatewayv2 get-apis \
-	| jq -c '.Items[]|{Name:.Name,ApiEndpoint:.ApiEndpoint}'
+	| jq -c '.Items[]|{Name,ApiEndpoint}'
 
 # Note $\ as continuation and $ to escape $NAME
 test:
@@ -37,4 +38,4 @@ test:
 events:
 	@aws cloudformation describe-stack-events \
 	--stack-name ${STACK} \
-	| jq '.StackEvents |sort_by(.Timestamp)'
+	| jq '.StackEvents |sort_by(.Timestamp) |.[] '
